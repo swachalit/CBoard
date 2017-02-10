@@ -121,8 +121,8 @@ public class ConfigRuleService {
         return null;
     }
 
-    @Around("execution(* org.cboard.services.AdminSerivce.addUser(..)) || " +
-            "execution(* org.cboard.services.AdminSerivce.updateUser(..)))")
+    @Around("execution(* org.cboard.services.AdminService.addUser(..)) || " +
+            "execution(* org.cboard.services.AdminService.updateUser(..)))")
     public Object userAdminRule(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String userid = authenticationService.getCurrentUser().getUserId();
         if (userid.equals(adminUserId)) {
@@ -131,9 +131,9 @@ public class ConfigRuleService {
         return null;
     }
 
-    @Around("execution(* org.cboard.services.AdminSerivce.addRole(..)) || " +
-            "execution(* org.cboard.services.AdminSerivce.updateRole(..)) || " +
-            "execution(* org.cboard.services.AdminSerivce.updateRoleRes(..))")
+    @Around("execution(* org.cboard.services.AdminService.addRole(..)) || " +
+            "execution(* org.cboard.services.AdminService.updateRole(..)) || " +
+            "execution(* org.cboard.services.AdminService.updateRoleRes(..))")
     public Object resAdminRule(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String userid = authenticationService.getCurrentUser().getUserId();
         if (userid.equals(adminUserId)) {
@@ -147,7 +147,7 @@ public class ConfigRuleService {
         return null;
     }
 
-    @Around("execution(* org.cboard.services.AdminSerivce.updateRole(..))")
+    @Around("execution(* org.cboard.services.AdminService.updateRole(..))")
     public Object updateRole(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String userid = authenticationService.getCurrentUser().getUserId();
         if (userid.equals(adminUserId)) {
@@ -161,7 +161,7 @@ public class ConfigRuleService {
         return null;
     }
 
-    @Around("execution(* org.cboard.services.AdminSerivce.updateUserRole(..))")
+    @Around("execution(* org.cboard.services.AdminService.updateUserRole(..))")
     public Object updateUserRole(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         String userid = authenticationService.getCurrentUser().getUserId();
         if (userid.equals(adminUserId)) {

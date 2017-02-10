@@ -25,7 +25,7 @@ import java.util.Map;
  * Created by yfyuan on 2016/12/2.
  */
 @Repository
-public class AdminSerivce {
+public class AdminService {
 
     @Value("${admin_user_id:1}")
     private String adminUid;

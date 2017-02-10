@@ -3,7 +3,7 @@ package org.cboard.controller;
 
 import org.cboard.dto.DashboardMenu;
 import org.cboard.dto.User;
-import org.cboard.services.AdminSerivce;
+import org.cboard.services.AdminService;
 import org.cboard.services.AuthenticationService;
 import org.cboard.services.MenuService;
 import org.cboard.services.ServiceStatus;
@@ -28,7 +28,7 @@ public class CommonsController {
     private MenuService menuService;
 
     @Autowired
-    private AdminSerivce adminSerivce;
+    private AdminService adminService;
 
     @RequestMapping(value = "/getUserDetail")
     public User getUserDetail() {
@@ -42,6 +42,6 @@ public class CommonsController {
 
     @RequestMapping(value = "/changePwd")
     public ServiceStatus changePwd(@RequestParam(name = "curPwd") String curPwd, @RequestParam(name = "newPwd") String newPwd, @RequestParam(name = "cfmPwd") String cfmPwd) {
-        return adminSerivce.changePwd(authenticationService.getCurrentUser().getUserId(), curPwd, newPwd, cfmPwd);
+        return adminService.changePwd(authenticationService.getCurrentUser().getUserId(), curPwd, newPwd, cfmPwd);
     }
 }
